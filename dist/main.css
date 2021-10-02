@@ -1,0 +1,301 @@
+/* basic setting */
+/* reset css */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a,
+a:visited {
+  color: #2a2a2a;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.btn,
+button,
+button:focus,
+input:focus,
+textarea:focus,
+select,
+select:focus,
+a:focus {
+  outline: 0px !important;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+button[disabled] {
+  pointer-events: none;
+}
+
+input {
+  padding: 0;
+}
+
+input:required {
+  box-shadow: none;
+}
+
+input:invalid {
+  box-shadow: none;
+}
+
+::-webkit-scrollbar {
+  /* make scrollbar transparent */
+  width: 0px;
+  background: transparent;
+}
+
+body {
+  background: #fff;
+  color: #2a2a2a;
+  font-family: "Noto Sans TC";
+}
+
+.d-none {
+  display: none;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.align-content-start {
+  align-content: flex-start;
+}
+
+.align-content-end {
+  align-content: flex-end;
+}
+
+.align-content-center {
+  align-content: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.scrollbar {
+  padding-left: 6px;
+}
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar__logo img {
+  width: 150px;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  padding: 1rem;
+  background: white;
+}
+nav input {
+  display: none;
+}
+nav .navbar__toggle:checked ~ .navbar__link {
+  display: inline-block;
+}
+nav .navbar__toggle:checked ~ .navbar__icon {
+  display: flex;
+}
+nav .hamburger {
+  width: 24px;
+  height: 24px;
+}
+nav .navbar__link {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 0 1rem;
+  background: white;
+}
+nav .navbar__link li {
+  padding: 0 2px;
+  text-align: center;
+  line-height: 5rem;
+  border-bottom: 1px solid #d8d8d8;
+}
+nav .navbar__logo {
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  transform: translateX(-50%);
+}
+nav .navbar__icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 5rem;
+  bottom: -1000%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+}
+nav .navbar__icon img {
+  margin-right: 3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 5rem;
+}
+nav .navbar__icon img:last-child {
+  margin-right: 0;
+}
+
+@media (min-width: 820px) {
+  body {
+    padding: 0 10%;
+  }
+
+  nav {
+    padding: 15px 0;
+  }
+  nav label {
+    display: none;
+  }
+  nav .navbar__link {
+    display: unset;
+    position: unset;
+    padding: unset;
+  }
+  nav .navbar__link ul {
+    display: flex;
+    flex-direction: row;
+  }
+  nav .navbar__link li {
+    border-bottom: unset;
+    line-height: unset;
+    margin-right: 0.5rem;
+    font-size: 0.3rem;
+  }
+  nav .navbar__icon {
+    display: flex;
+    position: unset;
+    z-index: 2;
+    width: unset;
+    height: 100%;
+  }
+  nav .navbar__icon img {
+    margin-right: 1.5rem;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
