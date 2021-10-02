@@ -5,7 +5,6 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-y: scroll;
   scroll-behavior: smooth;
 }
 
@@ -189,14 +188,26 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.navbar__logo {
+  align-items: center;
+}
 .navbar__logo img {
   width: 150px;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 nav {
   position: sticky;
   top: 0;
-  height: 60px;
+  height: 3rem;
   padding: 1rem;
   background: white;
 }
@@ -226,7 +237,7 @@ nav .navbar__link {
 nav .navbar__link li {
   padding: 0 2px;
   text-align: center;
-  line-height: 5rem;
+  line-height: 4rem;
   border-bottom: 1px solid #d8d8d8;
 }
 nav .navbar__logo {
@@ -243,7 +254,7 @@ nav .navbar__icon {
   z-index: 1;
   width: 100%;
   height: 5rem;
-  bottom: -1000%;
+  bottom: -840%;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
@@ -258,7 +269,11 @@ nav .navbar__icon img:last-child {
   margin-right: 0;
 }
 
-@media (min-width: 820px) {
+footer {
+  display: none;
+}
+
+@media (min-width: 860px) {
   body {
     padding: 0 10%;
   }
@@ -295,6 +310,24 @@ nav .navbar__icon img:last-child {
     margin-right: 1.5rem;
     width: 24px;
     height: 24px;
+  }
+
+  footer {
+    padding: 3rem 0;
+    display: block;
+  }
+  footer .navbar__logo {
+    padding: 3rem 0;
+    width: 5rem;
+  }
+  footer .footer__wrapper__item li {
+    margin: 0.1rem 0;
+    font-size: 0.8rem;
+    color: #808080;
+  }
+  footer .footer__wrapper__item i {
+    font-size: 1rem;
+    margin: 0 0.5rem;
   }
 }
 
