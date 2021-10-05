@@ -47,24 +47,24 @@
   </nav>
   <!-- checkout -->
   <div class="checkout">
-    <h2 class="checkout__title">結帳</h2>
-    <div class="checkout__steppers">
-      <div class="step">
-        <div class="step__circle"></div>
-        <div class="step__title">寄送地址</div>
-      </div>
-      <div class="step">
-        <div class="step__circle"></div>
-        <span class="connect-line"></span>
-        <div class="step__title">運送方式</div>
-      </div>
-      <div class="step">
-        <div class="step__circle"></div>
-        <span class="connect-line"></span>
-        <div class="step__title">付款資訊</div>
-      </div>
-    </div>
     <form action="/" class="checkout__form">
+      <h2 class="checkout__title">結帳</h2>
+      <div class="checkout__steppers d-flex justify-content-center">
+        <div class="step checked d-flex justify-content-start">
+          <div class="step__circle"></div>
+          <span class="connect-line"></span>
+          <div class="step__title">寄送地址</div>
+        </div>
+        <div class="step active d-flex justify-content-center">
+          <div class="step__circle"></div>
+          <span class="connect-line"></span>
+          <div class="step__title">運送方式</div>
+        </div>
+        <div class="step d-flex justify-content-end">
+          <div class="step__circle"></div>
+          <div class="step__title">付款資訊</div>
+        </div>
+      </div>
       <div class="part">
         <h3 class="panel__title"></h3>
         <div class="form-row">
@@ -107,7 +107,7 @@
         </div>
       </div>
 
-      <div class="part">
+      <div class="part d-none">
         <h3 class="panel__title">運送方式</h3>
         <div class="ship">
           <input type="radio">
@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      <div class="part">
+      <div class="part d-none">
         <h3 class="panel__title"></h3>
 
         <div class="form-row">
@@ -158,12 +158,12 @@
           <div class="product">
             <img src="" alt="">
             <div class="product__wrapper">
-              <div class="product__title">
+              <h4 class="product__title">破壞補丁修身牛仔褲</h4>
                 <i></i>
                 <div class="product__amount"></div>
                 <i></i>
               </div>
-              <div class="product__price"></div>
+              <div class="product__price"><h4>刷色直筒牛仔褲</h4></div>
             </div>
           </div>
           <div class="product">
@@ -178,23 +178,20 @@
             </div>
           </div>
           <div class="fee">
-            <div class="fee__title"></div>
-            <div class="fee__price"></div>
+            <h5 class="fee__title">運費</h5>
+            <h5 class="fee__price">免費</h5>
           </div>
           <div class="total">
-            <div class="total__title"></div>
-            <div class="total__price"></div>
+            <h5 class="total__title">小計</h5>
+            <h5 class="total__price"></h5>
           </div>
         </div>
-      </div>
 
       <div class="btn__wrapper">
         <button class="btn btn-outline" disabled>上一步</button>
-        <button class="btn btn-pink">下一步</button>
+        <button class="btn btn-pink" type="button">下一步</button>
       </div>
     </form>
-
-
 
   </div>
 

@@ -2,9 +2,7 @@
 $body-bg: #fff;
 $body-color: #2a2a2a;
 $footer-bg: #f6f7f8;
-$light-line: #f0f0f5;
 $nav-line: #d8d8d8;
-$dark-line: #000;
 $pink: #f67599;
 $white: #fff;
 $gray-0: #e6e6eb;
@@ -208,6 +206,14 @@ body {
   }
 }
 
+@mixin getStepNums($num) {
+  @for $i from 1 through $num {
+    &:nth-child(#{$i}) .step__circle::after {
+      content: "#{$i}";
+    }
+  }
+}
+
 // 共用樣式
 .navbar__logo {
   align-items: center;
@@ -215,9 +221,11 @@ body {
     width: 150px;
   }
 }
+
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
+
 h3 {
   font-size: 1rem;
   margin-bottom: 0.8rem;
@@ -227,6 +235,7 @@ h3 {
 
 nav {
   position: sticky;
+  z-index: 2;
   top: 0;
   height: 3rem;
   padding: 1rem;
@@ -241,8 +250,8 @@ nav {
     display: flex;
   }
   .hamburger {
-    width: 24px;
-    height: 24px;
+    width: 1.2rem;
+    height: 1.2rem;
   }
   .navbar__link {
     display: none;
@@ -254,7 +263,7 @@ nav {
     padding: 0 1rem;
     background: white;
     li {
-      padding: 0 2px;
+      padding: 0 0.1rem;
       text-align: center;
       line-height: 4rem;
       border-bottom: 1px solid $nav-line;
@@ -262,7 +271,7 @@ nav {
   }
   .navbar__logo {
     position: absolute;
-    z-index: 999;
+    z-index: 2;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -289,6 +298,73 @@ nav {
     }
   }
 }
+
+// steppers
+.checkout {
+  margin: 1.5rem 0;
+}
+.checkout__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "steppers"
+    "form";
+  padding: 0 1rem;
+  width: 100%;
+  .checkout__title {
+    grid-area: title;
+  }
+  .checkout__steppers {
+    grid-area: steppers;
+    margin: 1.5rem 0;
+    .step {
+      position: relative;
+      width: 100%;
+      line-height: 2rem;
+      text-align: center;
+      @include getStepNums(3);
+      &.checked {
+        .step__circle {
+          background: $body-color;
+          color: white;
+        }
+        .connect-line {
+          background-color: $body-color;
+        }
+      }
+      &.checked .step__circle::after {
+        content: "\2714";
+      }
+      &:nth-child(2) .connect-line {
+        left: calc(80% + 1rem);
+        right: calc(-70% + 2rem);
+      }
+      .step__circle {
+        border: 1px solid $body-color;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+      }
+      .connect-line {
+        position: absolute;
+        top: 1rem;
+        left: calc(2rem + 30%);
+        right: calc(-20% + 1rem);
+        display: block;
+        height: 2px;
+        background-color: $gray-1;
+      }
+      .step__title {
+        display: none;
+      }
+    }
+  }
+  .checkout__form {
+    grid-area: form;
+  }
+}
+
 footer {
   display: none;
 }
@@ -300,7 +376,7 @@ footer {
     padding: 0 10%;
   }
   nav {
-    padding: 15px 0;
+    padding: 0.75rem 0;
     label {
       display: none;
     }
@@ -327,9 +403,57 @@ footer {
       height: 100%;
       img {
         margin-right: 1.5rem;
-        width: 24px;
-        height: 24px;
       }
+    }
+  }
+
+  .checkout__form {
+    grid-template-columns: 60% 5% 35%;
+    grid-template-areas:
+      "title title title"
+      "steppers . ."
+      "part . cart"
+      "btn btn btn";
+    padding: 0 1rem;
+    width: 100%;
+    .checkout__steppers {
+      grid-area: steppers;
+      .step {
+        width: 100%;
+        line-height: 0.8rem;
+        text-align: center;
+        .step__circle {
+          width: 0.8rem;
+          height: 0.8rem;
+          margin-right: 0.2rem;
+          font-size: 0.4rem;
+        }
+        .connect-line {
+          top: 0.4rem;
+        }
+        .step__title {
+          display: unset;
+          font-size: 0.8rem;
+        }
+        &:nth-child(2) .connect-line {
+          left: calc(65% + 2rem);
+          right: calc(-85% + 4.2rem);
+        }
+        .connect-line {
+          left: calc(15% + 4rem);
+          right: calc(-35% + 2rem);
+        }
+      }
+    }
+    .part {
+      grid-area: part;
+    }
+    .cart {
+      grid-area: cart;
+    }
+    .btn__wrapper {
+      outline: 1px solid;
+      grid-area: btn;
     }
   }
 
