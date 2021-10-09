@@ -97,16 +97,16 @@
           <div class="form-row city">
             <label for="city">縣市</label>
             <div class="select-wrapper">
-            <select name="city" id="city">
-              <option value="請選擇縣市" disabled selected>請選擇縣市</option>
-              <option value="台北市">台北市</option>
-              <option value="新北市">新北市</option>
-              <option value="基隆市">基隆市</option>
-              <option value="桃園市">桃園市</option>
-              <option value="新竹市">新竹市</option>
-              <option value="新竹縣">新竹縣</option>
-              <option value="其他縣市">其他縣市</option>
-            </select>
+              <select name="city" id="city">
+                <option value="請選擇縣市" disabled selected>請選擇縣市</option>
+                <option value="台北市">台北市</option>
+                <option value="新北市">新北市</option>
+                <option value="基隆市">基隆市</option>
+                <option value="桃園市">桃園市</option>
+                <option value="新竹市">新竹市</option>
+                <option value="新竹縣">新竹縣</option>
+                <option value="其他縣市">其他縣市</option>
+              </select>
             </div>
           </div>
 
@@ -117,7 +117,7 @@
         </div>
       </div>
       <div class="part  d-none">
-        <div class="part__wrapper">
+        <div class="part__wrapper ship__panel">
           <h2 class="panel__title">運送方式</h2>
           <label class="ship" for="standard">
             <input class="shipBtn" type="radio" name="ship" value="standard" id="standard" checked>
@@ -125,7 +125,7 @@
               <h4 class="ship__type__title">標準運送</h4>
               <h5 class="ship__type__desc">約 3~7 個工作天</h5>
             </div>
-            <h5 class="ship__price">免費</h5>
+            <h5 class="ship__fee">免費</h5>
           </label>
           <label class="ship" for="dhl">
             <input class="shipBtn" type="radio" name="ship" value="DHL" id="dhl">
@@ -133,7 +133,7 @@
               <h4 class="ship__type__title DHL">DHL 貨運</h4>
               <h5 class="ship__type__desc">48小時內送達</h5>
             </div>
-            <h5 class="ship__price">$500</h5>
+            <h5 class="ship__fee">$500</h5>
           </label>
         </div>
       </div>
@@ -169,11 +169,11 @@
             <div class="product__wrapper">
               <h4 class="product__title">破壞補丁修身牛仔褲</h4>
               <div class="product__counter d-flex justify-content-end">
-                <span class="product__counterBtn">-</span>
+                <span class="product__counterBtn minus">-</span>
                 <p class="product__amount">1</p>
-                <span class="product__counterBtn">+</span>
+                <span class="product__counterBtn plus">+</span>
               </div>
-              <h4 class="product__price">$3,999</h4>
+              <h4 class="product__price">3999</h4>
             </div>
 
           </div>
@@ -183,28 +183,27 @@
             <div class="product__wrapper">
               <h4 class="product__title">刷色直筒牛仔褲</h4>
               <div class="product__counter d-flex justify-content-end">
-                <span class="product__counterBtn">-</span>
+                <span class="product__counterBtn minus">-</span>
                 <p class="product__amount">1</p>
-                <span class="product__counterBtn">+</span>
+                <span class="product__counterBtn plus">+</span>
               </div>
-              <h4 class="product__price">$1,299</h4>
+              <h4 class="product__price">1299</h4>
             </div>
-
           </div>
 
           <div class="fee d-flex justify-content-between">
-            <h5 class="fee__title">運費</h5>
-            <h5 class="fee__price">免費</h5>
+            <h4 class="fee__title">運費</h4>
+            <h4 class="fee__price">免費</h4>
           </div>
           <div class="total d-flex justify-content-between">
-            <h5 class="total__title">小計</h5>
-            <h5 class="total__price">0</h5>
+            <h4 class="total__title">小計</h4>
+            <h4 class="total__price">5298</h4>
           </div>
         </div>
       </div>
       <div class="btn__wrapper">
-        <button class="btn btn-outline" disabled>← 上一步 </button>
-        <button class="btn btn-pink" type="button">下一步　→</button>
+        <button type="button" class="btn btn-outline" disabled>← 上一步 </button>
+        <button type="submit" class="btn btn-pink" type="button">下一步　→</button>
       </div>
     </form>
 

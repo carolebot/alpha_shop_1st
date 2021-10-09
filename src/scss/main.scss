@@ -282,12 +282,14 @@ p {
 }
 
 @mixin circle-style {
-  border: 1px solid $body-color;
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
+  border: 1px solid $gray-2;
+  color: $gray-2;
 }
 
+// stepper數字產生
 @mixin getStepNums($num) {
   @for $i from 1 through $num {
     &:nth-child(#{$i}) .step__circle::after {
@@ -402,23 +404,43 @@ nav {
       text-align: center;
       @include getStepNums(3);
       // 步驟完成的圓圈跟線樣式
+      &.active {
+        .step__circle {
+          background: $white;
+          border-color: $body-color;
+          &::after {
+            color: $body-color;
+          }
+        }
+        .connect-line {
+          background: $body-color;
+        }
+        .step__title {
+          color: $body-color;
+        }
+      }
       &.checked {
         .step__circle {
           background: $body-color;
           color: $white;
+          border: $body-color;
+          &::after {
+            content: "\2714";
+          }
         }
         .connect-line {
-          background-color: $body-color;
+          background: $body-color;
         }
-      }
-      // 步驟完成的數字變成打勾
-      &.checked .step__circle::after {
-        content: "\2714";
+        .step__title {
+          color: $body-color;
+        }
       }
       &:first-child {
         .step__circle {
           background: $gray-6;
-          color: $white;
+          &::after {
+            color: $white;
+          }
         }
       }
       .step__circle {
@@ -438,7 +460,7 @@ nav {
         left: calc(80% + 1rem);
         right: calc(-70% + 2rem);
       }
-      & .step__title {
+      .step__title {
         display: none;
       }
     }
@@ -529,7 +551,7 @@ nav {
           font-weight: bold;
         }
       }
-      .ship__price {
+      .ship__fee {
         flex-basis: 40%;
         text-align: right;
       }
@@ -586,6 +608,9 @@ nav {
       .product__price {
         font-size: 0.8rem;
         font-weight: bold;
+        &::before {
+          content: "$";
+        }
       }
     }
     .fee,
@@ -595,6 +620,14 @@ nav {
       .fee__title,
       .total__title {
         font-weight: normal;
+      }
+      .fee__price, .total__price  {
+        font-weight: bold;
+      }
+      .total__price {
+        &::before {
+          content: "$";
+        }
       }
     }
   }
@@ -687,6 +720,7 @@ footer {
         }
         .step__title {
           display: unset;
+          color: $gray-2;
           font-size: 0.6rem;
         }
         &:nth-child(2) .connect-line {
@@ -705,7 +739,7 @@ footer {
     .form-row {
       &.phone {
         width: 45%;
-        margin-right: 1rem;
+        margin-right: 0.8rem;
       }
       &.city {
         width: 30%;
@@ -756,6 +790,12 @@ footer {
             font-size: 0.5rem;
           }
         }
+      }
+      .fee__title,
+      .total__title,
+      .fee__price,
+      .total__price {
+        font-size: 0.4rem;
       }
     }
     .btn__wrapper {
