@@ -1,0 +1,40 @@
+/* basic setting */
+html {
+  --body-bg: #fff;
+  --body-color: #2a2a2a;
+    --text:#000;
+  --shadow: #fff;
+  --footer-bg: #f6f7f8;
+  --line: #000;
+  --btn: #2a2a2a;
+  --btn-outside: #000;
+  --border: #f0f0f5;
+  --pink: #f67599;
+  --gray-0: #e6e6eb;
+  --gray-1: #d8d8d8;
+  --gray-2: #afb1bd;
+  --gray-3: #999999;
+  --gray-4: #808080;
+  --gray-5: #4a4a4a;
+  --gray-6: #333333;
+}
+
+.dark {
+  --body-bg: #000;
+  --body-color: #fff;
+  --text: #808080;
+  --shadow: #383838;
+  --footer-bg: #333333;
+  --line: #fff;
+  --btn: #333333;
+  --btn-outside: transparent;
+  --border: #808080;
+  --pink: #f67599;
+  --gray-0: #e6e6eb;
+  --gray-1: #d8d8d8;
+  --gray-2: #afb1bd;
+  --gray-3: #999999;
+  --gray-4: #808080;
+  --gray-5: #4a4a4a;
+  --gray-6: #333333;
+}

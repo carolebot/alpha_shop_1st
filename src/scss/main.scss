@@ -1,349 +1,14 @@
-/* basic setting */
-html {
-  --body-bg: #fff;
-  --body-color: #2a2a2a;
-    --text:#000;
-  --shadow: #fff;
-  --footer-bg: #f6f7f8;
-  --line: #000;
-  --btn: #2a2a2a;
-  --btn-outside: #000;
-  --border: #f0f0f5;
-  --pink: #f67599;
-  --gray-0: #e6e6eb;
-  --gray-1: #d8d8d8;
-  --gray-2: #afb1bd;
-  --gray-3: #999999;
-  --gray-4: #808080;
-  --gray-5: #4a4a4a;
-  --gray-6: #333333;
-}
+@import 'reset';
+@import 'utility';
+@import 'style';
+@import 'themeColor';
 
-.dark {
-  --body-bg: #000;
-  --body-color: #fff;
-  --text: #808080;
-  --shadow: #383838;
-  --footer-bg: #333333;
-  --line: #fff;
-  --btn: #333333;
-  --btn-outside: transparent;
-  --border: #808080;
-  --pink: #f67599;
-  --gray-0: #e6e6eb;
-  --gray-1: #d8d8d8;
-  --gray-2: #afb1bd;
-  --gray-3: #999999;
-  --gray-4: #808080;
-  --gray-5: #4a4a4a;
-  --gray-6: #333333;
-}
+// MOBILE
 
-/* reset css */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  scroll-behavior: smooth;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0px;
-  padding: 0px;
-}
-
-ul,
-ol,
-li {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-a,
-a:hover,
-a:focus {
-  text-decoration: none;
-}
-
-a,
-a:visited {
-  color: var(--body-color);
-}
-
-img,
-svg {
-  display: block;
-}
-
-.btn,
-button,
-button:focus,
-input:focus,
-textarea:focus,
-select,
-select:focus,
-a:focus {
-  outline: 0px !important;
-}
-
-button {
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-}
-
-button[disabled] {
-  pointer-events: none;
-}
-
-input {
-  padding: 0;
-}
-
-input:required {
-  box-shadow: none;
-}
-
-input:invalid {
-  box-shadow: none;
-}
-
-body {
-  background: var(--body-bg);
-  color: var(--body-color);
-  font-family: "Noto Sans TC";
-}
-
-// 樣式
-
-h1 {
-  font-size: 1.6rem;
-}
-
-h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.9rem;
-}
-
-h3 {
-  font-size: 0.9rem;
-  margin-bottom: 0.9rem;
-}
-
-h4 {
-  font-size: 0.8rem;
-  font-weight: normal;
-}
-
-h5 {
-  font-size: 0.7rem;
-}
-
-p {
-  font-size: 0.6rem;
-}
-
-.d-none {
-  display: none;
-}
-
-.d-inline {
-  display: inline;
-}
-
-.d-inline-block {
-  display: inline-block;
-}
-
-.d-block {
-  display: block;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.justify-content-start {
-  justify-content: flex-start;
-}
-
-.justify-content-end {
-  justify-content: flex-end;
-}
-
-.justify-content-center {
-  justify-content: center;
-}
-
-.justify-content-between {
-  justify-content: space-between;
-}
-
-.justify-content-around {
-  justify-content: space-around;
-}
-
-.align-content-start {
-  align-content: flex-start;
-}
-
-.align-content-end {
-  align-content: flex-end;
-}
-
-.align-content-center {
-  align-content: center;
-}
-
-.align-items-start {
-  align-items: flex-start;
-}
-
-.align-items-end {
-  align-items: flex-end;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.scrollbar {
-  padding-left: 6px;
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-}
-
-::placeholder {
-  color: var(--gray-3);
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-
-%standard-boxshadow {
-  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
-}
-
-%lable-style {
-  margin-bottom: 0.3rem;
-  font-size: 0.6rem;
-  font-weight: bold;
-  color: var(--gray-4);
-}
-
-%input-style {
-  padding: 0.5rem;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 0.2rem;
-  border-color: var(--gray-5);
-  background: transparent;
-  font-size: 0.4rem;
-  font-weight: normal;
-  color: var(--body-color);
-  cursor: pointer;
-}
-
-%btn-style {
-  width: 9rem;
-  height: 2.5rem;
-  text-align: center;
-  border-radius: 0.4rem;
-  background-color: var(--pink);
-  color: var(--btn);
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-%radio-style {
-  -webkit-appearance: none;
-  position: relative;
-  border-radius: 50%;
-  height: 0.5rem;
-  width: 0.5rem;
-  padding: 0.5rem;
-  margin-right: 1rem;
-  border: 1px solid var(--btn-outside);
-  box-shadow: inset 0 0 0 10px var(--shadow);
-  cursor: pointer;
-  &:checked {
-    box-shadow: inset 0 0 0 6px var(--btn);
-    &::after {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 32%;
-      content: "";
-      width: 0.4rem;
-      height: 0.4rem;
-      border-radius: 50%;
-      background: white;
-    }
-  }
-}
-
-%circle-style {
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  border: 1px solid var(--gray-2);
-  color: var(--gray-2);
-}
-
-// stepper數字產生
-@mixin getStepNums($num) {
-  @for $i from 1 through $num {
-    &:nth-child(#{$i}) .step__circle::after {
-      content: "#{$i}";
-    }
-  }
-}
-
-// footer跟header的logo共用樣式
+// footer跟header的logo
 .navbar__logo {
   align-items: center;
 }
-
-// MOBILE
 
 // navbar
 nav {
@@ -353,7 +18,6 @@ nav {
   height: 3rem;
   padding: 1rem;
   background: var(--body-bg);
-
   input {
     display: none;
   }
@@ -456,7 +120,28 @@ nav {
       line-height: 2rem;
       text-align: center;
       @include getStepNums(3);
-      // 步驟完成的圓圈跟線樣式
+      .step__circle {
+        @include circle-style(2rem, 1rem, var(--gray-2));
+        border: 1px solid var(--gray-2);
+      }
+      .connect-line {
+        position: absolute;
+        top: 1rem;
+        left: calc(2rem + 30%);
+        right: calc(-20% + 1rem);
+        display: block;
+        height: 2px;
+        background-color: var(--gray-2);
+      }
+      //第二條線對齊調整
+      &:nth-child(2) .connect-line {
+        left: calc(80% + 1rem);
+        right: calc(-70% + 2rem);
+      }
+      .step__title {
+        display: none;
+      }
+      //當前步驟
       &.active {
         .step__circle {
           background: var(--body-bg);
@@ -472,6 +157,7 @@ nav {
           color: var(--body-color);
         }
       }
+      //完成步驟
       &.checked {
         .step__circle {
           background: var(--gray-6);
@@ -488,6 +174,7 @@ nav {
           color: var(--body-color);
         }
       }
+      //第一步active樣式跟其他步驟樣式不同
       &:first-child {
         .step__circle {
           background: var(--btn);
@@ -496,26 +183,6 @@ nav {
             color: var(--gray-0);
           }
         }
-      }
-      .step__circle {
-        @extend %circle-style;
-        font-size: 1rem;
-      }
-      .connect-line {
-        position: absolute;
-        top: 1rem;
-        left: calc(2rem + 30%);
-        right: calc(-20% + 1rem);
-        display: block;
-        height: 2px;
-        background-color: var(--gray-2);
-      }
-      &:nth-child(2) .connect-line {
-        left: calc(80% + 1rem);
-        right: calc(-70% + 2rem);
-      }
-      .step__title {
-        display: none;
       }
     }
   }
@@ -572,15 +239,7 @@ nav {
       position: relative;
       z-index: 0;
       &::after {
-        content: "";
-        border-style: solid;
-        border-width: 4px 4px 0 4px;
-        border-color: var(--btn) transparent transparent transparent;
-        position: absolute;
-        z-index: -1;
-        top: 50%;
-        right: 0.4rem;
-        transform: translateY(-50%);
+       @extend %triangle-style;
       }
       select {
         width: 100%;
@@ -657,13 +316,9 @@ nav {
           font-size: 0.8rem;
         }
         .product__counterBtn {
+           @include circle-style(1rem, 1rem, var(--gray-6));
           background-color: var(--border);
-          border-radius: 50%;
-          width: 1rem;
-          height: 1rem;
           text-align: center;
-          font-size: 1rem;
-          color: var(--gray-6);
           cursor: pointer;
         }
       }
