@@ -1,18 +1,43 @@
 /* basic setting */
-$body-bg: #fff;
-$body-color: #2a2a2a;
-$footer-bg: #f6f7f8;
-$white-2: #f0f0f5;
-$pink: #f67599;
-$white: #fff;
-$gray-0: #e6e6eb;
-$gray-1: #d8d8d8;
-$gray-2: #afb1bd;
-$gray-3: #999999;
-$gray-4: #808080;
-$gray-5: #4a4a4a;
-$gray-6: #333333;
-$black: #000;
+html {
+  --body-bg: #fff;
+  --body-color: #2a2a2a;
+    --text:#000;
+  --shadow: #fff;
+  --footer-bg: #f6f7f8;
+  --line: #000;
+  --btn: #2a2a2a;
+  --btn-outside: #000;
+  --border: #f0f0f5;
+  --pink: #f67599;
+  --gray-0: #e6e6eb;
+  --gray-1: #d8d8d8;
+  --gray-2: #afb1bd;
+  --gray-3: #999999;
+  --gray-4: #808080;
+  --gray-5: #4a4a4a;
+  --gray-6: #333333;
+}
+
+.dark {
+  --body-bg: #000;
+  --body-color: #fff;
+  --text: #808080;
+  --shadow: #383838;
+  --footer-bg: #333333;
+  --line: #fff;
+  --btn: #333333;
+  --btn-outside: transparent;
+  --border: #808080;
+  --pink: #f67599;
+  --gray-0: #e6e6eb;
+  --gray-1: #d8d8d8;
+  --gray-2: #afb1bd;
+  --gray-3: #999999;
+  --gray-4: #808080;
+  --gray-5: #4a4a4a;
+  --gray-6: #333333;
+}
 
 /* reset css */
 html,
@@ -54,12 +79,11 @@ a:focus {
 
 a,
 a:visited {
-  color: $body-color;
+  color: var(--body-color);
 }
 
-img {
-  width: 100%;
-  height: 100%;
+img,
+svg {
   display: block;
 }
 
@@ -97,8 +121,8 @@ input:invalid {
 }
 
 body {
-  background: $body-bg;
-  color: $body-color;
+  background: var(--body-bg);
+  color: var(--body-color);
   font-family: "Noto Sans TC";
 }
 
@@ -227,7 +251,7 @@ p {
 }
 
 ::placeholder {
-  color: $gray-3;
+  color: var(--gray-3);
 }
 
 ::-webkit-scrollbar {
@@ -239,54 +263,70 @@ p {
   box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
 }
 
-@mixin lable-style {
+%lable-style {
   margin-bottom: 0.3rem;
   font-size: 0.6rem;
   font-weight: bold;
-  color: $gray-4;
+  color: var(--gray-4);
 }
 
-@mixin input-style {
+%input-style {
   padding: 0.5rem;
+  border-style: solid;
   border-width: 1px;
   border-radius: 0.2rem;
-  border-color: $gray-5;
+  border-color: var(--gray-5);
   background: transparent;
-  font-size: 0.6rem;
+  font-size: 0.4rem;
+  font-weight: normal;
+  color: var(--body-color);
   cursor: pointer;
 }
 
-@mixin btn-style {
+%btn-style {
   width: 9rem;
   height: 2.5rem;
   text-align: center;
   border-radius: 0.4rem;
-  background-color: $pink;
-  color: $white;
+  background-color: var(--pink);
+  color: var(--btn);
   font-size: 0.8rem;
   cursor: pointer;
 }
 
-@mixin radio-style {
+%radio-style {
   -webkit-appearance: none;
+  position: relative;
   border-radius: 50%;
   height: 0.5rem;
   width: 0.5rem;
   padding: 0.5rem;
   margin-right: 1rem;
-  border: 1px solid $body-color;
+  border: 1px solid var(--btn-outside);
+  box-shadow: inset 0 0 0 10px var(--shadow);
   cursor: pointer;
   &:checked {
-    box-shadow: inset 0 0 0 5px $body-color;
+    box-shadow: inset 0 0 0 6px var(--btn);
+    &::after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 32%;
+      content: "";
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 50%;
+      background: white;
+    }
   }
 }
 
-@mixin circle-style {
+%circle-style {
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
-  border: 1px solid $gray-2;
-  color: $gray-2;
+  border: 1px solid var(--gray-2);
+  color: var(--gray-2);
 }
 
 // stepper數字產生
@@ -298,11 +338,9 @@ p {
   }
 }
 
+// footer跟header的logo共用樣式
 .navbar__logo {
   align-items: center;
-  img {
-    height: 1.5rem;
-  }
 }
 
 // MOBILE
@@ -314,7 +352,7 @@ nav {
   top: 0;
   height: 3rem;
   padding: 1rem;
-  background: white;
+  background: var(--body-bg);
 
   input {
     display: none;
@@ -327,8 +365,11 @@ nav {
   }
   .hamburger {
     width: 1.2rem;
-    height: 1.2rem;
+    height: 1rem;
     cursor: pointer;
+    path {
+      fill: var(--body-color);
+    }
   }
   .navbar__link {
     display: none;
@@ -338,12 +379,12 @@ nav {
     left: 0;
     width: 100%;
     padding: 0 1rem;
-    background: white;
+    background: var(--body-bg);
     li {
       padding: 0 0.1rem;
       text-align: center;
       line-height: 4rem;
-      border-bottom: 1px solid $gray-1;
+      border-bottom: 1px solid var(--gray-1);
     }
   }
   .navbar__logo {
@@ -363,15 +404,27 @@ nav {
     bottom: -840%;
     left: 50%;
     transform: translateX(-50%);
-    background: $white;
-    img {
-      margin-right: 3rem;
-      width: 1.5rem;
-      height: 1.5rem;
+    background: var(--body-bg);
+    img,
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
       line-height: 5rem;
     }
-    img:last-child {
-      margin-right: 0;
+    svg {
+      margin-right: 3rem;
+      path {
+        fill: var(--body-color);
+      }
+      &:nth-child(3) {
+        stroke: var(--body-color);
+        path {
+          fill: transparent;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -406,45 +459,46 @@ nav {
       // 步驟完成的圓圈跟線樣式
       &.active {
         .step__circle {
-          background: $white;
-          border-color: $body-color;
+          background: var(--body-bg);
+          border-color: var(--body-color);
           &::after {
-            color: $body-color;
+            color: var(--body-color);
           }
         }
         .connect-line {
-          background: $body-color;
+          background: var(--body-color);
         }
         .step__title {
-          color: $body-color;
+          color: var(--body-color);
         }
       }
       &.checked {
         .step__circle {
-          background: $body-color;
-          color: $white;
-          border: $body-color;
+          background: var(--gray-6);
+          color: var(--gray-0);
+          border: var(--body-color);
           &::after {
             content: "\2714";
           }
         }
         .connect-line {
-          background: $body-color;
+          background: var(--body-color);
         }
         .step__title {
-          color: $body-color;
+          color: var(--body-color);
         }
       }
       &:first-child {
         .step__circle {
-          background: $gray-6;
+          background: var(--btn);
+          border: none;
           &::after {
-            color: $white;
+            color: var(--gray-0);
           }
         }
       }
       .step__circle {
-        @include circle-style();
+        @extend %circle-style;
         font-size: 1rem;
       }
       .connect-line {
@@ -454,7 +508,7 @@ nav {
         right: calc(-20% + 1rem);
         display: block;
         height: 2px;
-        background-color: $gray-2;
+        background-color: var(--gray-2);
       }
       &:nth-child(2) .connect-line {
         left: calc(80% + 1rem);
@@ -481,18 +535,18 @@ nav {
       margin: 0.2rem 0;
       width: 100%;
       label {
-        @include lable-style();
+        @extend %lable-style;
       }
       input,
       select {
         -webkit-appearance: none;
-        @include input-style();
+        @extend %input-style;
       }
       input:hover,
       select:hover,
       input:focus,
       select:focus {
-        border: 1px solid $gray-3;
+        border: 1px solid var(--gray-3);
       }
       &.gender {
         width: 30%;
@@ -508,6 +562,11 @@ nav {
       &.address {
         flex: 1;
       }
+      &.city {
+        select {
+          color: var(--gray-3);
+        }
+      }
     }
     .select-wrapper {
       position: relative;
@@ -516,7 +575,7 @@ nav {
         content: "";
         border-style: solid;
         border-width: 4px 4px 0 4px;
-        border-color: $body-color transparent transparent transparent;
+        border-color: var(--btn) transparent transparent transparent;
         position: absolute;
         z-index: -1;
         top: 50%;
@@ -533,19 +592,20 @@ nav {
       width: 100%;
       padding: 1rem;
       margin: 0.5rem 0;
-      border: 1px solid $gray-1;
+      border: 1px solid var(--gray-1);
       border-radius: 0.4rem;
       &:hover {
-        border: 1px solid $black;
+        border: 1px solid var(--line);
       }
       .shipBtn {
-        @include radio-style();
+        @extend %radio-style;
       }
       .ship__type {
         flex-basis: 50%;
         font-weight: normal;
         .ship__type__desc {
           font-weight: normal;
+          color: var(--text);
         }
         .ship__type__title.DHL {
           font-weight: bold;
@@ -565,8 +625,9 @@ nav {
     }
     margin: 0.5rem 0;
     padding: 1rem 1rem 0 1rem;
-    border: 1px solid $white-2;
+    border: 1px solid var(--border);
     border-radius: 0.4rem;
+    background: var(--shadow);
     .product {
       position: relative;
       display: flex;
@@ -596,12 +657,13 @@ nav {
           font-size: 0.8rem;
         }
         .product__counterBtn {
-          background-color: $white-2;
+          background-color: var(--border);
           border-radius: 50%;
           width: 1rem;
           height: 1rem;
           text-align: center;
           font-size: 1rem;
+          color: var(--gray-6);
           cursor: pointer;
         }
       }
@@ -616,12 +678,13 @@ nav {
     .fee,
     .total {
       padding: 1rem 0;
-      border-top: 1px solid $white-2;
+      border-top: 1px solid var(--border);
       .fee__title,
       .total__title {
         font-weight: normal;
       }
-      .fee__price, .total__price  {
+      .fee__price,
+      .total__price {
         font-weight: bold;
       }
       .total__price {
@@ -636,16 +699,17 @@ nav {
     justify-content: space-between;
     margin: 2rem 0;
     padding-top: 1.5rem;
-    border-top: 1px solid $gray-0;
+    border-top: 1px solid var(--border);
     .btn {
-      @include btn-style();
+      @extend %btn-style;
+      color: var(--gray-0);
     }
     // 上一步 黑字透明底
     .btn-outline {
-      color: $black;
       background: none;
       text-align: left;
       cursor: pointer;
+      color: var(--line);
     }
   }
 }
@@ -656,7 +720,7 @@ footer {
 }
 
 // DESKTOP
-@media (min-width: 800px) {
+@media (min-width: 810px) {
   body {
     padding: 0 10%;
   }
@@ -686,6 +750,7 @@ footer {
       position: unset;
       width: unset;
       height: 100%;
+      svg,
       img {
         width: 1.2rem;
         height: 1.2rem;
@@ -713,14 +778,14 @@ footer {
           width: 0.8rem;
           height: 0.8rem;
           margin-right: 0.2rem;
-          font-size: 0.6rem;
+          font-size: 0.5rem;
         }
         .connect-line {
           top: 0.4rem;
         }
         .step__title {
           display: unset;
-          color: $gray-2;
+          color: var(--gray-2);
           font-size: 0.6rem;
         }
         &:nth-child(2) .connect-line {
@@ -815,7 +880,7 @@ footer {
         margin: 0.1rem 0;
         padding: 0 0.1rem;
         font-size: 0.8rem;
-        color: $gray-4;
+        color: var(--gray-4);
       }
       i {
         margin: 0 0.5rem;

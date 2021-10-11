@@ -1,6 +1,7 @@
 import './scss/main.scss'
 console.log('JS loaded!')
 
+const html = document.querySelector('#html')
 const form = document.querySelector('.checkout__form')
 const formParts = form.querySelectorAll('.part')
 const stepControl = document.querySelector('.checkout__steppers')
@@ -12,6 +13,8 @@ const cartPanel = document.querySelector('.cart__panel')
 const shipPanel = document.querySelector('.ship__panel')
 const fee = document.querySelector('.fee__price')
 const total = document.querySelector('.total__price')
+const darkModeToggle = document.querySelector('.darkModeToggle')
+
 let step = 0 //進行步驟
 
 // 上下步驟切換與表單變化
@@ -87,7 +90,26 @@ function countPrice(e) {
 // 計算運費
 function countShipFee(e) {
   let feePrice = (e.target.parentElement.children[2].innerText === '$500') ? '$500' : '免費'
+  let totalPrice = parseInt(total.innerText, 10)
   fee.innerText = feePrice
+  total.innerText = (feePrice === '免費')
+  ? totalPrice -500 : totalPrice + 500
+}
+
+function darkMode(e) {
+  //change color
+  html.classList.toggle('dark')
+  //change logo
+  let logos = document.querySelectorAll('.logo')
+  let logoUrl = (logos[0].src === 'https://i.ibb.co/k1NmtNQ/nFCV3OM.png')
+    ? 'https://i.ibb.co/vmhbnbs/Logo.png'
+    : 'https://i.ibb.co/k1NmtNQ/nFCV3OM.png'
+
+  logos.forEach(logo => {
+    logo.src = logoUrl
+  })
+
+  //change icon
 }
 
 
@@ -109,3 +131,7 @@ shipPanel.addEventListener('click', (e) => {
   }
 })
 
+// 監聽darkMode
+darkModeToggle.addEventListener('click', (e) => {
+  darkMode(e)
+})
